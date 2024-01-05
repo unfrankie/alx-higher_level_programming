@@ -29,7 +29,7 @@ def is_safe(b, r, c, N):
 def explore_nqueens(b, r, N):
     '''explore the puzzle'''
     if r == N:
-        print(b)
+        print([[i, b[i].index(1)] for i in range(N)])
         return
 
     for c in range(N):
