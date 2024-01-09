@@ -28,9 +28,11 @@ class Student:
             attrs: A list of attributes to include in the dictionary
                          If None, all attributes are included
         """
-        if attrs is None or not all(isinstance(attr, str) for attr in attrs):
-            return self.__dict__
-        return {attr: getattr(self, attr, None) for attr in attrs if hasattr(self, attr)} if attrs else self.__dict__
+        if (type(attrs) == list and all
+                (type(elem) == str for elem in attrs)):
+            return {dic: getattr(self, dic) for
+                    dic in attrs if hasattr(self, dic)}
+        return self.__dict__
 
 
 if __name__ == "__main__":
