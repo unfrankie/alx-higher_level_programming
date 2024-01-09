@@ -28,11 +28,13 @@ class Student:
             attrs: A list of attributes to include in the dictionary
                          If None, all attributes are included
         """
-        if (type(attrs) == list and all
-                (type(elem) == str for elem in attrs)):
-            return {dic: getattr(self, dic) for
-                    dic in attrs if hasattr(self, dic)}
-        return self.__dict__
+        my_dict = dict()
+        if type(attrs) is list and all(type(x) is str for x in attrs):
+            for x in attrs:
+                if x in self.__dict__:
+                    my_dict.update({x: self.__dict__[x]})
+            return my_dict
+        return self.__dict__.copy()
 
 
 if __name__ == "__main__":
