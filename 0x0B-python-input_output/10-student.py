@@ -30,7 +30,8 @@ class Student:
         """
         if attrs is None or not all(isinstance(attr, str) for attr in attrs):
             return self.__dict__
-        return {attr: getattr(self, attr, None) for attr in attrs}
+        sorted_attrs = sorted(attrs)
+        return {attr: getattr(self, attr, None) for attr in sorted_attrs}
 
 
 if __name__ == "__main__":
