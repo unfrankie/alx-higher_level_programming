@@ -36,6 +36,7 @@ class Base:
         with open(filename, mode="w", encoding="utf-8") as file:
             file.write(cls.to_json_string(obj_list))
 
+    @classmethod
     def create(cls, **dictionary):
         if cls.__name__ == "Rectangle":
             dummy = cls(1, 1)
@@ -46,6 +47,7 @@ class Base:
         dummy.update(**dictionary)
         return dummy
 
+    @classmethod
     def load_from_file(cls):
         filename = cls.__name__ + ".json"
         try:
