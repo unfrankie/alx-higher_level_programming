@@ -54,14 +54,17 @@ class Rectangle(Base):
         """Getter for width"""
         return self.__width
 
+    @property
     def height(self):
         """Getter for height"""
         return self.__height
 
+    @property
     def x(self):
         """Getter for x"""
         return self.__x
 
+    @property
     def y(self):
         """Getter for y"""
         return self.__y
