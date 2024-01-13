@@ -22,8 +22,8 @@ class Base:
         return json.dumps(list_dictionaries)
 
     @classmethod
-    def from_json_string(json_string):
-        if json_string is None or json_string == "[]":
+    def from_json_string(cls, json_string):
+        if not json_string or json_string == "[]":
             return []
         return json.loads(json_string)
 
