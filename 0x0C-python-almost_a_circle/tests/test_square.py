@@ -1,6 +1,7 @@
 import unittest
 from unittest.mock import patch
 from models.square import Square
+from models.base import Base
 
 class TestSquare(unittest.TestCase):
     def test_size_property(self):
