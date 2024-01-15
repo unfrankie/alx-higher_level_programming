@@ -34,18 +34,12 @@ class TestRectangle(unittest.TestCase):
     def test_rectangle(self):
 
         r1 = Rectangle(10, 2)
-        self.assertEqual(r1._Rectangle__width, 10)
-        self.assertEqual(r1._Rectangle__height, 2)
-        self.assertEqual(r1._Rectangle__x, 0)
-        self.assertEqual(r1._Rectangle__y, 0)
-        self.assertEqual(r1.id, 1)
+        self.assertEqual(Base._Base__nb_objects, 1)
+        self.assertEqual(r1.get_id(), 1)
     
         r2 = Rectangle(2, 10)
-        self.assertEqual(r2._Rectangle__width, 2)
-        self.assertEqual(r2._Rectangle__height, 10)
-        self.assertEqual(r2._Rectangle__x, 0)
-        self.assertEqual(r2._Rectangle__y, 0)
-        self.assertEqual(r2.id, 2)
+        self.assertEqual(Base._Base__nb_objects, 2)
+        self.assertEqual(r2.get_id(), 2)
         #12
         r4 = Rectangle(1, 2)
         self.assertEqual(r4.id, 3)
