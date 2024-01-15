@@ -7,9 +7,6 @@ class Base:
     """Base class"""
     __nb_objects = 0
 
-    def get_id(self):
-        return self.id
-
     def __init__(self, id=None):
         """constructor for Base class"""
         if id is not None:
