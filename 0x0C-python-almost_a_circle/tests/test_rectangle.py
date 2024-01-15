@@ -33,6 +33,10 @@ class TestRectangle(unittest.TestCase):
 
     def test_rectangle(self):
 
+        #
+        r1 = Rectangle(10, 2)
+        self.assertEqual(r1.id, 1)
+        #
         r2 = Rectangle(2, 10)
         self.assertEqual(r2.id, 2)
         #12
