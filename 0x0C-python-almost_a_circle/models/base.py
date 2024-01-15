@@ -19,7 +19,19 @@ class Base:
     def to_json_string(list_dictionaries):
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
-        return json.dumps(list_dictionaries, sort_keys=True)
+        
+        sorted_dicts = []
+        for d in list_dictionaries:
+            sorted_dict = {
+                'x': d['x'],
+                'width': d['width'],
+                'id': d['id'],
+                'height': d['height'],
+                'y': d['y']
+            }
+            sorted_dicts.append(sorted_dict)
+    
+        return json.dumps(sorted_dicts)
 
     @classmethod
     def from_json_string(cls, json_string):
