@@ -17,5 +17,11 @@ class TestSquare(unittest.TestCase):
         result = square.to_dictionary()
         self.assertEqual(result, {'id': 5, 'size': 4, 'x': 2, 'y': 1})
 
+    def setUp(self):
+        Base._Base__nb_objects = 0
+
+    def test_square_id_increment(self):
+        pass
+
 if __name__ == '__main__':
     unittest.main()
