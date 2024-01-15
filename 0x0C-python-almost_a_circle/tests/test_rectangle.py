@@ -2,6 +2,7 @@ import unittest
 from unittest.mock import patch
 import io
 from models.rectangle import Rectangle
+from models.base import Base
 
 class TestRectangle(unittest.TestCase):
     def test_area(self):
