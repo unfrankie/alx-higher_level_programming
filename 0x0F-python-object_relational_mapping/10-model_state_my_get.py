@@ -15,7 +15,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     state = session.query(State).filter(
-        State.name == sys.argv[4]
+        State.name == argv[4]
     ).order_by(State.id).first()
     if state:
         print(state.id)
