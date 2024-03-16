@@ -9,14 +9,13 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
     url_database = f"mysql+mysqldb://{argv[1]}:{argv[2]}@localhost/{argv[3]}"
     engine = create_engine(url_database)
+    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    cities = session.query(City).order_by(City.id).all()
-    for city in cities:
-        print("{}: ({}) {}".format(city.state.name, city.id, city.name))
+    result = session.query(State.name, City.id, City.name). \
+        join(State, City.state_id == State.id).order_by(City.id)
+    for state, id, city in result:
+        print(f"{state}: ({id}) {city}")
     session.close()
