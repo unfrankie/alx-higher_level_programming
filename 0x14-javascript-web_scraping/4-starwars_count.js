@@ -6,16 +6,16 @@ const apiUrl = process.argv[2];
 const characterId = 18;
 
 request(apiUrl, (error, response, body) => {
-  if (error) {
+  if (!error) {
+    const films = JSON.parse(body).results;
+    let count = 0;
+    films.forEach(film => {
+      if (film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)) {
+        count++;
+      }
+    });
+    console.log(count);
+  } else {
     console.error(error);
-    return;
   }
-  const films = JSON.parse(body).results;
-  const count = films.reduce((acc, film) => {
-    if (film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)) {
-      return acc + 1;
-    }
-    return acc;
-  }, 0);
-  console.log(count);
 });
