@@ -3,6 +3,10 @@
 const request = require('request');
 const movieId = process.argv[2];
 const apiUrl = `https://swapi.dev/api/films/${movieId}/`;
+const requestOptions = {
+  url: apiUrl,
+  rejectUnauthorized: false
+};
 
 request(apiUrl, (error, response, body) => {
   if (error) {
